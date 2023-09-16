@@ -5,10 +5,14 @@ Array.from(btns).forEach((btn) => {
     x = btn.dataset.num;
     op = "";
     if (x != "del" && x != "=" && x != "-1") {
-      result_input.value += x;
+      if (result_input.value == "0") {
+        result_input.value = x;
+      } else {
+        result_input.value += x;
+      }
     } else {
       if (x == "del") {
-        result_input.value = "";
+        result_input.value = 0;
       } else {
         if (x == "=") {
           op = result_input.value;
